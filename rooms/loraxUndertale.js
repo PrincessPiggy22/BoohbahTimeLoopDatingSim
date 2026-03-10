@@ -324,7 +324,11 @@ document.addEventListener('keyup', (e) => {
 
 attackButton.addEventListener('click', () => {
     console.log('Attack button clicked');
-    const damage = Math.floor(Math.random() * 20) + 10; // 10-30 damage
+    if (currentPhase !== 'safe') {
+        console.log('Cannot attack during attack phase');
+        return;
+    }
+    const damage = Math.floor(Math.random() * 10) + 5; // 5-15 damage
     boss.health -= damage;
     updateHealthBars();
 });
