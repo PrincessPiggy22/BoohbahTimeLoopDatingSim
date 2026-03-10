@@ -25,7 +25,6 @@ goThruDialouge("roomText", dialouge1);
 
 const noKeyDialouge = ["I need to unlock the door", ""];
 const gotKeyDialouge = ["I have the key", "I can unlock the door now", ""];
-const yesKeyDialouge = ["Unlocked", ""];
 
 document.getElementById("key").onclick = function() {
   inventory.push("key");
@@ -37,7 +36,6 @@ document.getElementById("key").onclick = function() {
 document.getElementById("door").onclick = function() {
   if(inventory.includes("key")) {
     console.log("you have the key");
-    goThruDialouge("roomText", yesKeyDialouge);
     window.location.href = "DomeCar.html";
   } else {
     console.log("you don't have the key");
