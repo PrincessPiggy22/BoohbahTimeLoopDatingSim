@@ -1,3 +1,20 @@
+
+#message {
+  opacity: 0;
+  animation: fadeText 4s ease-in-out;
+}
+
+@keyframes fadeText {
+  0% {opacity:0;}
+  20% {opacity:1;}
+  80% {opacity:1;}
+  100% {opacity:0;}
+}
+
+
+
+
+
 /* From Uiverse.io by jaykdoe */ 
 .container {
   height: 100%;
