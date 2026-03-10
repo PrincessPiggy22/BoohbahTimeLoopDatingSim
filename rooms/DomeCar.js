@@ -18,7 +18,7 @@ function goThruDialouge(id, array, characters) {
     
   }
   if(index == array.length){
-    await.sleep(2000)
+    sleep(2000);
     window.location.href = "WhatAnUndertale.html";
   }
 });
