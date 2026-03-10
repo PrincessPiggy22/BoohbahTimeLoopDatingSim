@@ -22,8 +22,10 @@ function loadImage(key, src) {
     images[key] = new Image();
     images[key].src = src;
     images[key].onload = () => {
+        console.log(`${src} loaded`);
         imagesLoaded++;
         if (imagesLoaded === totalImages) {
+            console.log('All images loaded, starting game');
             initGame();
         }
     };
@@ -31,6 +33,7 @@ function loadImage(key, src) {
         console.log(`Failed to load ${src}`);
         imagesLoaded++;
         if (imagesLoaded === totalImages) {
+            console.log('All images processed, starting game');
             initGame();
         }
     };
@@ -69,6 +72,7 @@ const phaseText = document.getElementById('phaseText');
 const phaseTimerDiv = document.getElementById('phaseTimer');
 
 function initGame() {
+    console.log('initGame called');
     gameStarted = true;
     updateHealthBars();
     updatePhaseText();
@@ -106,6 +110,7 @@ function update() {
     const timeLeft = Math.ceil((phaseDuration - phaseTimer) / 60); // seconds
     phaseTimerDiv.textContent = `Time left: ${timeLeft}s`;
     if (phaseTimer >= phaseDuration) {
+        console.log('Phase changing');
         currentPhaseIndex = (currentPhaseIndex + 1) % phases.length;
         currentPhase = phases[currentPhaseIndex];
         phaseTimer = 0;
@@ -313,6 +318,7 @@ document.addEventListener('keyup', (e) => {
 });
 
 attackButton.addEventListener('click', () => {
+    console.log('Attack button clicked');
     const damage = Math.floor(Math.random() * 20) + 10; // 10-30 damage
     boss.health -= damage;
     updateHealthBars();
