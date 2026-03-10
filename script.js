@@ -1,7 +1,7 @@
 
 document.getElementById("start").onclick = function() {
 
-  window.location.href = "game.html";
+  window.location.href = "intro.html";
 
 };
 
