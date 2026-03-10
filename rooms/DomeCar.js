@@ -21,7 +21,7 @@ function goThruDialouge(id, array, characters) {
     if (index == array.length) {
   setTimeout(() => {
     window.location.href = "WhatAnUndertale.html";
-  }, 3A000);
+  }, 3000);
 }
   }
 });
