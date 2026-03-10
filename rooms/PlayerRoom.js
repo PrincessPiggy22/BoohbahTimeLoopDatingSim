@@ -19,6 +19,7 @@ function goThruDialouge(id, array) {
 
 // Player Room
 // Starting Dialouge
+const inventory = [];
 const dialouge1 = ["*Insert Boohbah Screaming as their being murdered noises*" , "That sounded like it's coming from the Dome Car","I should get my key and check it out", " "];
 goThruDialouge("roomText", dialouge1);
 
