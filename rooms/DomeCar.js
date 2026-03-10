@@ -1,7 +1,4 @@
 
-let done = 0;
-
-
 function goThruDialouge(id, array, characters) {
 
   let index = 0;
