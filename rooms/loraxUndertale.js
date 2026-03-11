@@ -216,7 +216,7 @@ function generateAttack() {
             break;
         case 'axe':
             // Spawn multiple axes in a cone shape at the sides, leaving middle open
-            const targetXs = [100, 200, 600, 700]; // Positions along the box sides
+            const targetXs = [150, 250, 550, 650]; // Positions angled more inward
             targetXs.forEach(targetX => {
                 attacks.push(new Axe(boss.x + boss.width / 2, boss.y + boss.height, targetX));
             });
