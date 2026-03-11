@@ -29,7 +29,7 @@ document.getElementById("start").onclick = function() {
 
 document.getElementById("test").onclick = function() {
   console.log("test game");
-  window.location.href = "rooms/LetsGoGambling.html";
+  window.location.href = "rooms/DomeCar3.html";
 };
 
 
