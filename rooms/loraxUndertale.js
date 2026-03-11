@@ -215,8 +215,11 @@ function generateAttack() {
             attacks.push(attack);
             break;
         case 'axe':
-            attack = new Axe(boss.x + boss.width / 2, boss.y + boss.height, player.x + player.width / 2);
-            attacks.push(attack);
+            // Spawn multiple axes in a cone shape at the sides, leaving middle open
+            const targetXs = [100, 200, 600, 700]; // Positions along the box sides
+            targetXs.forEach(targetX => {
+                attacks.push(new Axe(boss.x + boss.width / 2, boss.y + boss.height, targetX));
+            });
             break;
     }
 }
