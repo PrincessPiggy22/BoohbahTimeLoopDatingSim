@@ -65,7 +65,8 @@ let attackCooldown = 0; // Cooldown for player attacks
 
 let currentPhase = 'safe';
 let phaseTimer = 0;
-const phaseDuration = 180; // frames, about 3 seconds at 60fps (was 240)
+const safePhaseDuration = 180; // keep safe phase at previous 3 seconds
+const attackPhaseDuration = 300; // frames, about 5 seconds for attack phases
 const phases = ['safe', 'red', 'blue', 'green'];
 let currentPhaseIndex = 0;
 
@@ -113,9 +114,10 @@ function gameLoop() {
 function update() {
     // Phase management
     phaseTimer++;
-    const timeLeft = Math.ceil((phaseDuration - phaseTimer) / 60); // seconds
+    const duration = (currentPhase === 'safe') ? safePhaseDuration : attackPhaseDuration;
+    const timeLeft = Math.ceil((duration - phaseTimer) / 60); // seconds
     phaseTimerDiv.textContent = `Time left: ${timeLeft}s`;
-    if (phaseTimer >= phaseDuration) {
+    if (phaseTimer >= duration) {
         currentPhaseIndex = (currentPhaseIndex + 1) % phases.length;
         currentPhase = phases[currentPhaseIndex];
         phaseTimer = 0;
