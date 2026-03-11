@@ -175,11 +175,6 @@ function update() {
         }
     });
 
-    // Update truffle trees
-    truffleTrees.forEach((tree, index) => {
-        // Trees could have some behavior if needed
-    });
-
     // Check win
     if (boss.health <= 0) {
         alert('You won! Returning to title...');
@@ -362,6 +357,7 @@ function resetGame() {
     player.x = 400;
     player.y = 500;
     attacks = [];
+    attackCooldown = 30;
     currentPhase = 'safe';
     currentPhaseIndex = 0;
     phaseTimer = 0;
@@ -385,7 +381,12 @@ document.addEventListener('keydown', (e) => {
             const damage = Math.floor(Math.random() * 10) + 5; // 5-15 damage
             boss.health -= damage;
             updateHealthBars();
-            attackCooldown = 30; // 0.5 seconds cooldown at 60fps
+            attackCooldown = 15; // 0.5 seconds cooldown at 60fps
         }
+    }
+});
+document.addEventListener('keyup', (e) => {
+    if (e.key === ' ') {
+        attackCooldown = 0; // Reset cooldown on key release
     }
 });
