@@ -261,7 +261,7 @@ class BearThing {
         if (this.zigTimer % 20 === 0) {
             this.direction *= -1;
         }
-        this.x += this.direction * 2;
+        this.x += this.direction * 4; // Increased zigzag amplitude
     }
     draw() {
         if (images.bearThing.complete && images.bearThing.naturalHeight !== 0) {
