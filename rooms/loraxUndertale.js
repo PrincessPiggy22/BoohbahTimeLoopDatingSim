@@ -12,7 +12,8 @@ const imageSources = {
     lorax: '../sprites/Lorax.png',
     truffle: '../sprites/Truffle.png',
     bearThing: '../sprites/BearThing.png',
-    axe: '../sprites/Axe.png'
+    axe: '../sprites/Axe.png',
+    truffleTree: '../sprites/TruffleTree.png'
 };
 
 let imagesLoaded = 0;
@@ -57,6 +58,7 @@ let gameStarted = false;
 let player = { x: 400, y: 500, width: 20, height: 20, health: 100 };
 let boss = { x: 350, y: 50, width: 100, height: 100, health: 200 };
 let attacks = [];
+let truffleTrees = [];
 let keys = {};
 
 let attackTimer = 0;
@@ -67,6 +69,7 @@ let phaseTimer = 0;
 const phaseDuration = 240; // frames, about 4 seconds at 60fps
 const phases = ['safe', 'truffle', 'bearThing', 'axe'];
 let currentPhaseIndex = 0;
+let axeDirection = 'outward';
 
 const phaseText = document.getElementById('phaseText');
 const phaseTimerDiv = document.getElementById('phaseTimer');
@@ -119,6 +122,9 @@ function update() {
         currentPhaseIndex = (currentPhaseIndex + 1) % phases.length;
         currentPhase = phases[currentPhaseIndex];
         phaseTimer = 0;
+        if (currentPhase === 'axe') {
+            axeDirection = axeDirection === 'outward' ? 'inward' : 'outward';
+        }
         updatePhaseText();
     }
 
@@ -157,6 +163,20 @@ function update() {
                 resetGame();
             }
         }
+        // Check collision with truffle trees (for axes)
+        if (attack instanceof Axe) {
+            truffleTrees.forEach((tree, treeIndex) => {
+                if (collides(attack, tree)) {
+                    truffleTrees.splice(treeIndex, 1);
+                    attacks.splice(index, 1);
+                }
+            });
+        }
+    });
+
+    // Update truffle trees
+    truffleTrees.forEach((tree, index) => {
+        // Trees could have some behavior if needed
     });
 
     // Check win
@@ -215,8 +235,13 @@ function generateAttack() {
             attacks.push(attack);
             break;
         case 'axe':
-            // Spawn multiple axes in a cone shape at the sides, leaving middle open
-            const targetXs = [150, 250, 550, 650]; // Positions angled more inward
+            // Spawn multiple axes in a cone shape, alternating directions
+            let targetXs;
+            if (axeDirection === 'outward') {
+                targetXs = [150, 250, 550, 650]; // Outward positions
+            } else {
+                targetXs = [350, 450]; // Inward positions towards middle
+            }
             targetXs.forEach(targetX => {
                 attacks.push(new Axe(boss.x + boss.width / 2, boss.y + boss.height, targetX));
             });
@@ -276,6 +301,23 @@ class BearThing {
     }
     offScreen() {
         return this.y > canvas.height;
+    }
+}
+
+class TruffleTree {
+    constructor(x, y) {
+        this.x = x - 15;
+        this.y = y - 40;
+        this.width = 50;
+        this.height = 40;
+    }
+    draw() {
+        if (images.truffleTree.complete && images.truffleTree.naturalHeight !== 0) {
+            ctx.drawImage(images.truffleTree, this.x, this.y, this.width, this.height);
+        } else {
+            ctx.fillStyle = 'green';
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
     }
 }
 
