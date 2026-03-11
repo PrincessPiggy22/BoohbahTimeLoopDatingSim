@@ -177,6 +177,7 @@ function update() {
 
     // Check win
     if (boss.health <= 0) {
+        alert('The Lorax got Boraxed');
         window.location.href = 'DomeCar2.html';
     }
 }
