@@ -35,7 +35,6 @@ body{
                           border-radius: 5px;
                           }
 
-                          .titlescreen button:hover {
-                            background-color: black;
+.titlescreen button:hover {
+      background-color: black;
                             }
-}
