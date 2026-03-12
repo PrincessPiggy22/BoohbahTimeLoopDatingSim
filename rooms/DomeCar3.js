@@ -41,9 +41,9 @@ Lorax = "../sprites/Lorax.png";
 
 
 // Begning convo
-const character1 =[Bling,You,Zing,You];
+const character1 =[Bling,You,Zing,You,Zing];
 
-const dialouge1 = ["&quot;Aww Dangit&quot;","&quot;Lets's GOOOOOOOOOOOOOOOOOOOOOOOOOO&quot;","&quot;Are you ready to fight God?&quot;","&quot;Heck Yeah!!! I'll take them down&quot;"];
+const dialouge1 = ["&quot;Aww Dangit&quot;","&quot;Lets's GOOOOOOOOOOOOOOOOOOOOOOOOOO&quot;","&quot; I'm gonna fight you now&quot;","&quot; wait why?&quot;","&quot; why not&quot;"];
 console.log("ZingZing time!!!!");
 goThruDialouge("roomText", dialouge1, character1);
 
