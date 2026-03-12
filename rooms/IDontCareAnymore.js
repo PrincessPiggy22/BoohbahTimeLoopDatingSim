@@ -267,12 +267,12 @@ class TinyBall {
         this.width = 10;
         this.height = 10;
 
-        this.speed = 4; // slower (was 8)
+        this.speed = 5; // slower (was 8)
 
         this.target = target;
 
         this.life = 0;
-        this.maxLife = 75; // explode after 1 second
+        this.maxLife = 80; // explode after 1 second
 
         this.collidesWithPlayer = true;
 
@@ -299,7 +299,7 @@ class TinyBall {
     }
 
     draw(){
-        ctx.fillStyle = 'orange';
+        ctx.fillStyle = 'green';
         ctx.fillRect(this.x, this.y, this.width, this.height);
     }
 
