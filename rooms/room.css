@@ -62,6 +62,8 @@ body {
   margin: auto;
   top: 50%;
   left: 50%;
+  right: 50%;
+  bottom: 50%;
   transform: translate(-50%, -50%);
   width: 500px;
   height: auto;
