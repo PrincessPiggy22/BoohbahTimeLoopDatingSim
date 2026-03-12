@@ -20,11 +20,8 @@
   transform: translate(-50%, -50%);
 }
 
-.img {
+img {
   width: 100%;
   height: auto;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
+

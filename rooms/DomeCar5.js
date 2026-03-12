@@ -17,7 +17,7 @@ function goThruDialouge(id, array, characters) {
   if(index == array.length){
     if (index == array.length) {
   setTimeout(() => {
-    window.location.href = "ZingZingZingbah.html";
+    window.location.href = "ending.html";
   }, 2000);
 }
   }
@@ -41,10 +41,9 @@ Lorax = "../sprites/Lorax.png";
 
 
 // Begning convo
-const character1 =[Bling,You,Zing,You,Zing];
+const character1 =[ZingDead,ZingDead];
 
-const dialouge1 = ["&quot;Aww Dangit&quot;","&quot;Lets's GOOOOOOOOOOOOOOOOOOOOOOOOOO&quot;","&quot; I'm gonna fight you now&quot;","&quot; wait why?&quot;","&quot; why not&quot;"];
-
+const dialouge1 = ["...","&quot;whoops...&quot;",];
 console.log("ZingZing time!!!!");
 goThruDialouge("roomText", dialouge1, character1);
 
