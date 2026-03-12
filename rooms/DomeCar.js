@@ -2,8 +2,8 @@
 function goThruDialouge(id, array, characters) {
 
   let index = 0;
-  document.getElementById(id).innerHTML = array[0];
-
+  document.getElementById(id).innerHTML = array[index];
+  
   document.addEventListener("click", function() {
   index++;
   if(index == 1 | | index == 3 | index == 5){
@@ -16,7 +16,7 @@ function goThruDialouge(id, array, characters) {
     document.getElementById("characterImage").src = characters[index];
     
   }
-   document.getElementById(id).innerHTML = array[index];
+
   if(index == array.length){
     if (index == array.length) {
   setTimeout(() => {
