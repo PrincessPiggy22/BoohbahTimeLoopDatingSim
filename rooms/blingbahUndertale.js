@@ -53,6 +53,9 @@ setTimeout(() => {
 
 let gameStarted = false;
 
+let bossMusic = new Audio('../Boohbah.mp3');
+bossMusic.loop = true;
+
 // Game variables
 let player = { x: 400, y: 500, width: 20, height: 20, health: 100 };
 let boss = { x: 350, y: 50, width: 100, height: 100, health: 200, maxHealth: 200 };
@@ -76,6 +79,7 @@ const phaseTimerDiv = document.getElementById('phaseTimer');
 function initGame() {
     console.log('initGame called');
     gameStarted = true;
+    bossMusic.play();
     updateHealthBars();
     updatePhaseText();
     gameLoop();
@@ -181,6 +185,7 @@ function update() {
     // Check win
     if (boss.health <= 0) {
         alert('Awww dangit!');
+        bossMusic.pause();
         window.location.href = 'DomeCar3.html';
     }
 }

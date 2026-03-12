@@ -20,6 +20,9 @@ It fits the theme because of the concescutive battles
 #### Lorax boss battle music by VocodedParadox
 [Insert fire emoji here 🔥](https://www.youtube.com/watch?v=LL5SHmnRA2g)
 
+#### Money Money Money by ABBA
+[This took forever to get into mp3 :(](https://www.youtube.com/watch?v=Zqcf1r1zBxc)
+
 #### Zing Zing Zingbah battle music
 [Boohbah Theme](https://www.youtube.com/watch?v=NQ-nif4rXGs&t=6s)
 
