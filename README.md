@@ -6,7 +6,7 @@
 [Who Murdered ZingZingZingbah](https://princesspiggy22.github.io/whomurderedzingzingzingbah.github.io/)
 
 ## Loreeeee i guess
-### You won a lottery to go on the Boohbah Express before it opens to the public. After you go to bed, a scream wakes you up and *gasp* ZingZingZingbah has been MURDERED!!!! Can you find out who did it? I mean I hope so because they literally tell you.
+#### You won a lottery to go on the Boohbah Express before it opens to the public. After you go to bed, a scream wakes you up and *gasp* ZingZingZingbah has been MURDERED!!!! Can you find out who did it? I mean I hope so because they literally tell you.
 
 
 ## AI
@@ -14,10 +14,10 @@
 
 
 ## Credits
-##### Dream sequence background by jaykdoe from Uiverse.io 
+#### Dream sequence background by jaykdoe from Uiverse.io 
 [Woah Stars](https://uiverse.io/jaykdoe/tasty-dragon-12)
 
-##### Lorax boss battle music by VocodedParadox
+#### Lorax boss battle music by VocodedParadox
 [Insert fire emoji here 🔥](https://www.youtube.com/watch?v=LL5SHmnRA2g)
 
-##### Images from google
+#### Images from google
