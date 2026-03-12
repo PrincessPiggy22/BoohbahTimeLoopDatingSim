@@ -13,9 +13,11 @@ function goThruDialouge(id, array, characters) {
     text.style.color = "rgb(0, 0, 0)";
     text.style.border = "3px solid #066b1c";
 
-  }  else if(index >= 8){
+  }  else if(index >= 7){
     document.getElementById("characterImage").src = Lorax;
-    document.getElementById("characterImage").style.opacity = "1";
+    if(index >=8){
+      document.getElementById("characterImage").style.opacity = "1";
+    }
     text.style.backgroundColor = "#f1dd00";
     text.style.color = "rgb(0, 0, 0)";
     text.style.border = "3px solid #ff4eaf";
