@@ -82,6 +82,7 @@ const phaseTimerDiv = document.getElementById('phaseTimer');
 function initGame() {
     console.log('initGame called');
     gameStarted = true;
+    bossMusic.play();
     updateHealthBars();
     updatePhaseText();
     gameLoop();
