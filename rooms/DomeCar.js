@@ -3,17 +3,20 @@ function goThruDialouge(id, array, characters) {
 
   let index = 0;
   document.getElementById(id).innerHTML = array[0];
-  document.getElementById("characterImage").src = characters[0];
 
   document.addEventListener("click", function() {
   index++;
-
+  if(index == 1 | | index == 3 | index == 5){
+    document.getElementById("characterImage").src = characters[index];
+  }
+  if(index == 9){
+    document.getElementById("characterImage").src = characters[index];
+  }
   if(index < array.length) {
-
-    document.getElementById(id).innerHTML = array[index];
     document.getElementById("characterImage").src = characters[index];
     
   }
+   document.getElementById(id).innerHTML = array[index];
   if(index == array.length){
     if (index == array.length) {
   setTimeout(() => {
