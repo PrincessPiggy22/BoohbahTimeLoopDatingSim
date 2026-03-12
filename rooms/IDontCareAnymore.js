@@ -10,6 +10,7 @@ const bossHealthBar = document.getElementById('bossHealthFill');
 const images = {};
 const imageSources = {
     heart: '../sprites/Heart.png',
+    truffle: '../sprites/Truffle.png',
     zingbah: '../sprites/Philzingzingcollins.png',
     ball: '../sprites/BluePokerChip.jpg' // reused as thrown ball
 };
@@ -50,7 +51,7 @@ let currentPhase = 'safe';
 let phaseTimer = 0;
 const safePhaseDuration = 180;
 const attackPhaseDuration = 300;
-const phases = ['safe', 'ball', 'beam', 'rapid'];
+const phases = ['safe', 'truffle', 'beam', 'rapid'];
 let currentPhaseIndex = 0;
 
 let beamSide = 'left';
@@ -69,7 +70,7 @@ function updatePhaseText() {
     let text;
     switch (currentPhase) {
         case 'safe': text = 'Safe Phase - Attack the Boss!'; break;
-        case 'ball': text = 'Thrown Ball!'; break;
+        case 'truffle': text = 'Truffle Attack!'; break;
         case 'beam': text = 'Beam Attack!'; break;
         case 'rapid': text = 'Rapid Tiny Balls!'; break;
     }
@@ -183,8 +184,17 @@ function draw() {
 
 function generateAttack() {
     switch (currentPhase) {
-        case 'ball':
-            attacks.push(new ThrownBall(boss.x + boss.width/2, boss.y + boss.height, player.x));
+        case 'truffle':
+            // Spawn truffles above the box, shooting down
+            for (let i = 0; i < 10; i++) {
+                let x = 50 + i * 70;
+                attacks.push(new Truffle(x, 250, 8));
+            }
+            // Spawn truffles underneath the box, shooting up
+            for (let i = 0; i < 10; i++) {
+                let x = 50 + i * 70;
+                attacks.push(new Truffle(x, 600, -8));
+            }
             break;
         case 'beam':
             attacks.push(new Beam(beamSide));
@@ -196,31 +206,28 @@ function generateAttack() {
     }
 }
 
-class ThrownBall {
-    constructor(x,y,targetX){
-        this.x=x-10; this.y=y; this.width=20; this.height=20;
-        this.speed=5; this.life=0;
-        const dx=targetX-x; const dy=300; const dist=Math.sqrt(dx*dx+dy*dy)||1;
-        this.dx=(dx/dist)*this.speed; this.dy=(dy/dist)*this.speed;
-        this.collidesWithPlayer=true;
-        this.onHitPlayer=()=>{
-            // reduce health but leave at least 1 so only beam can kill instantly
-            player.health = Math.max(1, player.health - 10);
-            attacks.push(new Explosion(this.x,this.y));
-        };
+class Truffle {
+    constructor(x, y, speed) {
+        this.x = x - 10;
+        this.y = y;
+        this.width = 20;
+        this.height = 20;
+        this.speed = speed;
     }
-    update(){
-        this.x+=this.dx;
-        this.y+=this.dy;
-        this.life++;
-        if(this.life>=60){attacks.push(new Explosion(this.x,this.y)); this.removed=true;}
+    update() {
+        this.y += this.speed;
     }
-    draw(){
-        if(images.ball && images.ball.complete && images.ball.naturalHeight!==0)
-            ctx.drawImage(images.ball,this.x,this.y,this.width,this.height);
-        else{ctx.fillStyle='blue';ctx.fillRect(this.x,this.y,this.width,this.height);}
+    draw() {
+        if (images.truffle.complete && images.truffle.naturalHeight !== 0) {
+            ctx.drawImage(images.truffle, this.x, this.y, this.width, this.height);
+        } else {
+            ctx.fillStyle = 'brown';
+            ctx.fillRect(this.x, this.y, this.width, this.height);
+        }
     }
-    offScreen(){return this.x<0||this.x>canvas.width||this.y>canvas.height||this.removed;}
+    offScreen() {
+        return this.y > canvas.height || this.y + this.height < 0;
+    }
 }
 
 class Beam {
