@@ -321,7 +321,7 @@ function resetGame(){
     boss.health=boss.maxHealth;
     player.x=400;
     player.y=500;
-    respawnLockTimer = 45; // ~0.75 seconds at 60fps
+    respawnLockTimer = 15; // ~0.75 seconds at 60fps
     attacks=[];
     attackCooldown=30;
     currentPhase='safe';
