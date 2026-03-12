@@ -262,7 +262,7 @@ class Explosion {constructor(x,y){this.x=x;this.y=y;this.radius=0;}update(){this
 
 function collides(a,b){return a.x<b.x+b.width&&a.x+a.width>b.x&&a.y<b.y+b.height&&a.y+a.height>b.y;}
 
-function resetGame(){player.health=150;boss.health=boss.maxHealth;player.x=400;player.y=500;attacks=[];attackCooldown=30;currentPhase='safe';currentPhaseIndex=0;phaseTimer=0;updateHealthBars();updatePhaseText();}
+function resetGame(){player.health=100;boss.health=boss.maxHealth;player.x=400;player.y=500;attacks=[];attackCooldown=30;currentPhase='safe';currentPhaseIndex=0;phaseTimer=0;updateHealthBars();updatePhaseText();}
 
 document.addEventListener('keydown',e=>{keys[e.key]=true;});
 document.addEventListener('keyup',e=>{keys[e.key]=false;});
