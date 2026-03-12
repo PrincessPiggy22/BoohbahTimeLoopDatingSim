@@ -7,32 +7,26 @@ function goThruDialouge(id, array, characters) {
   document.addEventListener("click", function() {
   index++;
   //const character1 =[Bling,You,Zing,You,Zing];
-  if(index == 0 || index == 1 || index == 3){
-    document.getElementById("characterImage").src = characters[index];
-   document.getElementById("characterImage").style.opacity = "1";
-    text.style.backgroundColor = "#f1dd00";
-    text.style.color = "rgb(0, 0, 0)";
-    text.style.border = "3px solid #ff4eaf";
-
-  }  else if(index == 2 || index == 5){
+  if(index == 2 || index >= 4){
     document.getElementById("characterImage").src = characters[index];
     document.getElementById("characterImage").style.opacity = "1";
     text.style.backgroundColor = "#ff5733";
     text.style.color = "white";
     text.style.border = "3px solid #c70039";
  
-  } else if(index >= 7){
+  } else if(index == 0){
     document.getElementById("characterImage").src = Bling;
     document.getElementById("characterImage").style.opacity = "1";
-    text.style.backgroundColor = "#ff5733";
-    text.style.color = "white";
-    text.style.border = "3px solid #c70039";
-  }
-  else {
-    document.getElementById("characterImage").style.opacity = "0";
     text.style.backgroundColor = "#0cf100";
     text.style.color = "rgb(0, 0, 0)";
     text.style.border = "3px solid #066b1c";
+  }
+  else {
+    document.getElementById("characterImage").style.opacity = "0";
+    
+    text.style.backgroundColor = "#898989";
+    text.style.color = "white";
+    text.style.border = "3px solid #575757";
     
   }
   if(index < array.length) {

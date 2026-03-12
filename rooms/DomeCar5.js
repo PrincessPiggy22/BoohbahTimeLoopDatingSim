@@ -1,25 +1,28 @@
 
+
 function goThruDialouge(id, array, characters) {
 
   let index = 0;
-  document.getElementById(id).innerHTML = array[0];
-  document.getElementById("characterImage").src = characters[0];
-
+  let text = document.getElementById(id);
+  text.innerHTML = array[0];
   document.addEventListener("click", function() {
   index++;
+  text.style.backgroundColor = "#898989";
+  text.style.color = "white";
+  text.style.border = "3px solid #575757";
 
   if(index < array.length) {
-
-    document.getElementById(id).innerHTML = array[index];
     document.getElementById("characterImage").src = characters[index];
+    document.getElementById(id).innerHTML = array[index];
     
   }
+
   if(index == array.length){
     if (index == array.length) {
       document.getElementById("characterImage").src = characters[index];
   setTimeout(() => {
-    window.location.href = "ending.html";
-  }, 2000);
+    window.location.href = "LetsGoGambling.html";
+  }, 3000);
 }
   }
 });

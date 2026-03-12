@@ -30,9 +30,9 @@ function goThruDialouge(id, array, characters) {
   }
   else {
     document.getElementById("characterImage").style.opacity = "0";
-    text.style.backgroundColor = "#0cf100";
-    text.style.color = "rgb(0, 0, 0)";
-    text.style.border = "3px solid #066b1c";
+    text.style.backgroundColor = "#898989";
+    text.style.color = "white";
+    text.style.border = "3px solid #575757";
     
   }
   if(index < array.length) {
