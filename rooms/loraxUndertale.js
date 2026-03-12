@@ -166,7 +166,7 @@ function update() {
             updateHealthBars();
             if (player.health <= 0) {
                 alert('You lost! Restarting...');
-                resetGame();
+                window.location.href = "WhatAnUndertale.html";
             }
         }
         // Check collision with truffle trees (for axes)
